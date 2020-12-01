@@ -16,6 +16,10 @@ namespace SEEU.Controllers
         {
             _context = sc;
             Console.WriteLine(  "djvnkfjb");
+            Console.WriteLine("betim dt raf");
+	{
+		default:
+	}
         }
 
         public IActionResult Index()
