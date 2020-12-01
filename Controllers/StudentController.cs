@@ -17,12 +17,33 @@ namespace SEEU.Controllers
             _context = sc;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(String sortOrder)
         {
-            var students = _context.Students.ToList();
+            //var students = _context.Students.ToList();
 
-            //var s2 = from s in _context.Students
-            //               select s;
+            var students = from rows in _context.Students select rows;
+
+            switch (sortOrder)
+            {
+                case "descending":
+                    students = students.OrderByDescending(s => s.FirstMidName);
+                    break;
+                case "date":
+                    students = students.OrderBy(s => s.EnrollmentDate);
+                    break;
+                case "date-desc":
+                    students = students.OrderByDescending(s => s.EnrollmentDate);
+                    break;
+                default:
+                    students = students.OrderBy(s => s.FirstMidName);
+                    break;
+            }
+
+            ViewData["sortByName"] = String.IsNullOrEmpty(sortOrder) ? "descending" : ""; //""
+
+            ViewData["sortByDate"] = sortOrder == "date" ? "date-desc" : "date"; //date 
+
+
             return View(students);
         }
 

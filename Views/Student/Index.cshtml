@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SEEU.Models.Student>
 
 @{ 
-    ViewData["Title"] = "Student";
+    ViewData["Title"] = "kbjalkbalkblkb";
 }
 
 <h1>Students</h1>
@@ -10,15 +10,15 @@
 <table class="table">
     <thead>
         <tr>
-            <td>
+            <th>
                 @Html.DisplayNameFor(model => model.LastName)
-            </td>
-            <td>
-                @Html.DisplayNameFor(model => model.FirstMidName)
-            </td>
-            <td>
-                @Html.DisplayNameFor(model => model.EnrollmentDate)
-            </td>
+            </th>
+            <th>
+                <a asp-route-sortOrder="@ViewData["sortByName"]">@Html.DisplayNameFor(model => model.FirstMidName)</a>
+            </th>
+            <th>
+                <a asp-route-sortOrder="@ViewData["sortByDate"]">@Html.DisplayNameFor(model => model.EnrollmentDate)</a>
+            </th>
             <td>
 
             </td>
@@ -43,6 +43,7 @@
                 </td>
             </tr>
         }
+    <p>Ky eshte mbiemri i Diellzes: @ViewData["Mbiemri_i_Diellzes"]</p>
 
     </tbody>
 </table>
