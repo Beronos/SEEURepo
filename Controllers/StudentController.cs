@@ -15,6 +15,7 @@ namespace SEEU.Controllers
         public StudentController(SchoolContext sc)
         {
             _context = sc;
+            Console.WriteLine(  "djvnkfjb");
         }
 
         public IActionResult Index()
