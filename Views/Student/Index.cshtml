@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SEEU.Models.Student>
+
+@{ 
+    ViewData["Title"] = "Student";
+}
+
+<h1>Students</h1>
+<a asp-action="Create">Create</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.LastName)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.FirstMidName)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.EnrollmentDate)
+            </td>
+            <td>
+
+            </td>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in Model)
+        {
+            <tr>
+                <td>
+                    @row.LastName
+                </td>
+                <td>
+                    @row.FirstMidName
+                </td>
+                <td>
+                    @row.EnrollmentDate
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@row.ID">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
